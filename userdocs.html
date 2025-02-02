@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/nullstyle.css" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <title>USER</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="docs">
+      <header class="header">
+        <button class="header-docs__filter-btn">Фільтр</button>
+      </header>
+      <aside class="aside">
+        <ul class="departments">
+          <li class="group closed">
+            <button class="group__open">+</button>
+            <button class="group__title group__btn" id="tav">ЦТАВ</button>
+
+            <ul class="sectors hidden">
+              <li class="group closed">
+                <button class="group__open">+</button>
+                <button class="group__title group__btn" id="dkvp">
+                  Дільниця ремонту КВП
+                </button>
+                <ul class="groups hidden">
+                  <li class="group">
+                    <button class="group__btn" id="vrt11">
+                      Група 1ВРТ-1
+                    </button>
+                  </li>
+                  <li class="group">
+                    <button class="group__btn" id="vrt12">
+                      Група 1ВРТ-2
+                    </button>
+                  </li>
+                </ul>
+              </li>
+              <li class="group closed">
+                <button class="group__open">+</button>
+                <button class="group__title group__btn" id="davt">
+                  Дільниця автоматики
+                </button>
+                <ul class="groups hidden">
+                  <li class="group">
+                    <button class="group__btn" id="szb1">Група СЗБ-1</button>
+                  </li>
+                  <li class="group">
+                    <button class="group__btn" id="ssj1">Група ССЖ-1</button>
+                  </li>
+                </ul>
+              </li>
+              <li class="group closed">
+                <button class="group__open">+</button>
+                <button class="group__title group__btn" id="dsuzm">
+                  Дільниця СУЗм
+                </button>
+              </li>
+              <li class="group closed">
+                <button class="group__open">+</button>
+                <button class="group__title group__btn" id="dasutp">
+                  Дільниця АСУТП
+                </button>
+              </li>
+              <li class="group closed">
+                <button class="group__open">+</button>
+                <button class="group__title group__btn" id="drem">
+                  Дільниця цехового ремонту
+                </button>
+              </li>
+              <li class="group closed">
+                <button class="group__open">+</button>
+                <button class="group__title group__btn" id="dsuze">
+                  Лабораторія СУЗе
+                </button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </aside>
+      <main class="main">
+        <table class="table">
+          <thead>
+            <tr class="table__headers">
+              <th class="table__header">
+                <div class="table__header-container">
+                  <p class="table__header-title">
+                    № Технологічної інструкції
+                  </p>
+                  <button class="table__header-btn" id="sortInstructionByNumBtn">
+                    А-я
+                  </button>
+                </div>
+              </th>
+              <th class="table__header">
+                <div class="table__header-container">
+                  <p class="table__header-title">Найменування</p>
+                  <button class="table__header-btn" id="sortInstructionByNameBtn">
+                    А-я
+                  </button>
+                </div>
+              </th>
+              <th class="table__header">
+                <div class="table__header-container">
+                  <p class="table__header-title">Дата затв.</p>
+                  <button class="table__header-btn" id="sortInstructionByDateBtn">
+                    А-я
+                  </button>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="imodal hidden">
+          <div class="imodal__container">
+            <div class="imodal__links">
+              <a href="#" class="imodal__save-link">Зберегти iнструкцiю</a>
+              <button class="imodal__save-link">Реєстрація протокола</button>
+            </div>
+            <button class="imodal__close-btn">Вихід</button>
+          </div>
+        </div>
+        <div class="addmodal hidden">
+          <div class="addmodal__container">
+            <form class="addmodal__form" action="#">
+              <fieldset class="addmodal__fieldset">
+                <label class="addmodal__label" for="department">Оберіть цех</label>
+                <select class="addmodal__select" name="department" id="department">
+                  <option value="tav">ЦТАВ</option>
+                </select>
+              </fieldset>
+              <fieldset class="addmodal__fieldset">
+                <label class="addmodal__label" for="sector">Оберіть дільницю</label>
+                <select class="addmodal__select" name="sector" id="sector">
+                  <option value="dkvp">Дільниця КВП</option>
+                  <option value="davt">Дільниця автоматики</option>
+                </select>
+              </fieldset>
+              <fieldset class="addmodal__fieldset">
+                <label class="addmodal__label" for="developer">Оберіть групу</label>
+                <select class="addmodal__select" name="developer" id="developer">
+                  <option value="vrt11">Група 1ВРТ-1</option>
+                  <option value="vrt12">Група 1ВРТ-2</option>
+                  <option value="ssj1">Група ССЖ-1</option>
+                  <option value="szb1">Група СЗБ-1</option>
+                </select>
+              </fieldset>
+              <fieldset class="addmodal__fieldset">
+                <label class="addmodal__label" for="instructionNum">Введіть номер ТІ</label>
+                <input class="addmodal__input-num" type="text" name="instructionNum" id="instructionNum">
+              </fieldset>
+              <fieldset class="addmodal__fieldset">
+                <label class="addmodal__label" for="instructionName">Введіть назву</label>
+                <textarea class="addmodal__input-name" type="text" name="instructionName" id="instructionName"></textarea>
+              </fieldset>
+              <fieldset class="addmodal__fieldset">
+                <label class="addmodal__label" for="instructionDate">Введіть дату затвердження</label>
+                <input class="addmodal__input-date" type="date" name="instructionDate" id="instructionDate">
+              </fieldset>
+              <fieldset class="addmodal__fieldset">
+                <label class="addmodal__label" for="instructionFile">Додайте файл ТІ</label>
+                <input class="addmodal__input-file" type="file" name="instructionFile" id="instructionFile">
+              </fieldset>
+              <div class="addmodal__btns">
+
+                <button class="addmodal__btn" type="button">Далі</button>
+                <button class="addmodal__close-btn" type="button">Вихід</button>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+        <div class="addprotmodal hidden">
+          <div class="addprotmodal__container">
+            <div class="addprotmodal__aside">
+              <div class="addprotmodal__bts">
+                <button class="addprotmodal__btn" id="add-info">Додати iнформацію про обладнання</button>
+                <input class="addprotmodal__input" type="text">
+              </div>
+              <div class="addprotmodal__bts">
+                <button class="addprotmodal__btn" id="add-repair-type">Вид ремонту</button>
+                <input class="addprotmodal__input" type="text">
+              </div>
+              <div class="addprotmodal__bts">
+                <button class="addprotmodal__btn" id="add-work">Додати роботу</button>
+                <input class="addprotmodal__input" id="protClause" type="text" placeholder="Пункт ТІ">
+                <textarea class="addprotmodal__textarea" id="protClauseText" type="text" placeholder="Опишіть роботи"></textarea>
+              </div>
+              <div class="addprotmodal__bts">
+                <button class="addprotmodal__btn" id="add-extra-info">Додати додаткову інформацію</button>
+                <input class="addprotmodal__input" type="text">
+              </div>
+              <div class="addprotmodal__bts">
+                <button class="addprotmodal__btn" id="add-measurements">Додати ЗВТ</button>
+              </div>
+            </div>
+            <form class="addprotmodal__form" action="#">
+              <table class="addprotmodal__table">
+                <thead class="addprotmodal__thead">
+                  <tr class="addprotmodal__tr">
+                    <th class="addprotmodal__th"></th>
+                    <th class="addprotmodal__th" colspan="2"></th>
+                  </tr>
+                </thead>
+                <tbody class="addprotmodal__tbody">
+                  <tr class="addprotmodal__tr">
+                    <td class="addprotmodal__td"></td>
+                    <td class="addprotmodal__td">Роботи, що виконуються</td>
+                    <td class="addprotmodal__td">Результат</td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="./js/script.js"></script>
+</body>
+
+</html>
