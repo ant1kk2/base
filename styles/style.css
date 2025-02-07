@@ -339,7 +339,10 @@
   flex-direction: row;
   column-gap: 10px;
   max-width: none;
+  max-height: 500px;
 }
+
+
 
 .addprotmodal__aside {
   display: flex;
@@ -354,7 +357,7 @@
   justify-content: space-between;
 }
 
-.addprotmodal__title{
+.addprotmodal__title {
   flex-grow: 1;
 }
 
@@ -374,14 +377,16 @@
 
 .addprotmodal__form {
   border-collapse: collapse;
+  overflow-y: scroll;
 }
 .addprotmodal__form th,
 .addprotmodal__form td {
   border: 1px solid black;
 }
 
-.addprotmodal__table{
+.addprotmodal__table {
   border: 2px solid black;
+  overflow-y: scroll;
 }
 
 .addprotmodal__th,
@@ -389,25 +394,27 @@
   padding: 5px 10px;
 }
 
-.addprotmodal__td:first-child{
-  width: 200px;
+.addprotmodal__td:first-child {
+  text-align: center;
+  width: 150px;
 }
-.addprotmodal__td:nth-child(2){
+.addprotmodal__td:nth-child(2) {
   width: 400px;
 }
-.addprotmodal__td:nth-child(3){
+.addprotmodal__td:nth-child(3) {
   width: 100px;
 }
-.addprotmodal__td:nth-child(4){
+.addprotmodal__td:nth-child(4) {
   width: 50px;
 }
 
-.addprotmodal__td:first-child.longcell{
+.addprotmodal__td:first-child.longcell {
+  text-align: left;
   width: 400px;
 }
-.addprotmodal__td:nth-child(2).longcell{
+.addprotmodal__td:nth-child(2).longcell {
   width: 100px;
 }
-.addprotmodal__td:nth-child(3).longcell{
+.addprotmodal__td:nth-child(3).longcell {
   width: 50px;
 }

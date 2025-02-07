@@ -41,9 +41,7 @@ export function addProtInfo(btn) {
   const headCell3 = document.createElement("th");
   headCell3.className = "addprotmodal__th";
   headCell3.textContent = "Видалити";
-  headCell3.addEventListener("click", (e) => {
-    deleteInfoRow(e, protTableHead);
-  });
+  headCell3.addEventListener("click", (e) => deleteInfoRow(e, protTableHead));
   if (protTableHead.querySelectorAll(".addprotmodal__th").length === 2) {
     protTableHead.querySelector(".addprotmodal__tr").lastElementChild.remove();
     protTableHead
@@ -109,9 +107,13 @@ export function addJob(btn) {
   const orderCell = document.createElement("td");
   const jobCell = document.createElement("td");
   const resultCell = document.createElement("td");
-  [orderCell, jobCell, resultCell].forEach(
+  const deleteCell = document.createElement("td");
+  deleteCell.innerText = "Видалити";
+  deleteCell.addEventListener("click", () => deleteJobRow(jobRow));
+  [orderCell, jobCell, resultCell, deleteCell].forEach(
     (cell) => (cell.className = "addprotmodal__td")
   );
+
   const prevOrderCell = protTableBody.lastElementChild.firstElementChild;
 
   orderCell.innerText = orderInput.value;
@@ -119,24 +121,54 @@ export function addJob(btn) {
 
   if (
     protTableBody.childElementCount > 1 &&
-    prevOrderCell.innerText === orderInput.value
+    prevOrderCell.innerText === orderInput.value &&
+    !longOrderValue
   ) {
     longOrderValue = orderInput.value;
-    longOrderCell = prevOrderCell;
+    longOrderCell =  prevOrderCell;
+  }
+
+  if (
+    protTableBody.childElementCount > 1 &&
+    longOrderCell?.innerText !== orderInput.value &&
+    longOrderValue
+  ) {
+    longOrderValue = null;
+    longOrderCell = null;
   }
 
   if (orderInput.value === longOrderValue) {
     longOrderCell.rowSpan += 1;
-    jobCell.classList.add("longcell");
-    resultCell.classList.add("longcell");
-    jobRow.append(jobCell, resultCell);
+    [jobCell, resultCell, deleteCell].forEach((cell) =>
+      cell.classList.add("longcell")
+    );
+    jobRow.append(jobCell, resultCell, deleteCell);
     protTableBody.append(jobRow);
     orderInput.value = "";
     jobInput.value = "";
     return;
   }
-  jobRow.append(orderCell, jobCell, resultCell);
+  jobRow.append(orderCell, jobCell, resultCell, deleteCell);
   protTableBody.append(jobRow);
   orderInput.value = "";
   jobInput.value = "";
+}
+
+function deleteJobRow(row) {
+  if (row.firstElementChild.rowSpan > 1) {
+    const firstCell = row.firstElementChild;
+    const orderCell = document.createElement("td");
+    orderCell.rowSpan = firstCell.rowSpan - 1;
+    orderCell.innerText = firstCell.innerText;
+    orderCell.className = "addprotmodal__td";
+    longOrderCell = orderCell;
+    for (const cell of row.nextElementSibling.children) {
+      cell.classList.remove("longcell");
+    }
+    row.nextElementSibling.prepend(orderCell);
+    row.remove();
+    return;
+  }
+  
+  row.remove();
 }
