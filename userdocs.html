@@ -21,7 +21,6 @@
           <li class="group closed">
             <button class="group__open">+</button>
             <button class="group__title group__btn" id="tav">ЦТАВ</button>
-
             <ul class="sectors hidden">
               <li class="group closed">
                 <button class="group__open">+</button>
@@ -147,8 +146,6 @@
                 <select class="addmodal__select" name="developer" id="developer">
                   <option value="vrt11">Група 1ВРТ-1</option>
                   <option value="vrt12">Група 1ВРТ-2</option>
-                  <option value="ssj1">Група ССЖ-1</option>
-                  <option value="szb1">Група СЗБ-1</option>
                 </select>
               </fieldset>
               <fieldset class="addmodal__fieldset">
@@ -157,7 +154,8 @@
               </fieldset>
               <fieldset class="addmodal__fieldset">
                 <label class="addmodal__label" for="instructionName">Введіть назву</label>
-                <textarea class="addmodal__input-name" type="text" name="instructionName" id="instructionName"></textarea>
+                <textarea class="addmodal__input-name" type="text" name="instructionName"
+                  id="instructionName"></textarea>
               </fieldset>
               <fieldset class="addmodal__fieldset">
                 <label class="addmodal__label" for="instructionDate">Введіть дату затвердження</label>
@@ -167,8 +165,12 @@
                 <label class="addmodal__label" for="instructionFile">Додайте файл ТІ</label>
                 <input class="addmodal__input-file" type="file" name="instructionFile" id="instructionFile">
               </fieldset>
+              <fieldset class="addmodal__fieldset">
+                <label class="addmodal__label" for="tegs">Примітка</label>
+                <textarea class="addmodal__input-name" type="text" name="tegs"
+                  id="tegs"></textarea>
+              </fieldset>
               <div class="addmodal__btns">
-
                 <button class="addmodal__btn" type="button">Далі</button>
                 <button class="addmodal__close-btn" type="button">Вихід</button>
               </div>
@@ -180,21 +182,26 @@
           <div class="addprotmodal__container">
             <div class="addprotmodal__aside">
               <div class="addprotmodal__bts">
-                <button class="addprotmodal__btn" id="add-info">Додати iнформацію про обладнання</button>
+                <p class="addprotmodal__title">Інформація про обладнання</p>
                 <input class="addprotmodal__input" type="text">
+                <button class="addprotmodal__btn" id="add-info">Додати</button>
               </div>
               <div class="addprotmodal__bts">
-                <button class="addprotmodal__btn" id="add-repair-type">Вид ремонту</button>
+                <p class="addprotmodal__title">Вид ремонту</p>
                 <input class="addprotmodal__input" type="text">
+                <button class="addprotmodal__btn" id="add-repair-type">Додати</button>
               </div>
               <div class="addprotmodal__bts">
-                <button class="addprotmodal__btn" id="add-work">Додати роботу</button>
+                <p class="addprotmodal__title">Роботи</p>
                 <input class="addprotmodal__input" id="protClause" type="text" placeholder="Пункт ТІ">
-                <textarea class="addprotmodal__textarea" id="protClauseText" type="text" placeholder="Опишіть роботи"></textarea>
+                <textarea class="addprotmodal__textarea" id="protClauseText" type="text"
+                placeholder="Опис роботи"></textarea>
+                <button class="addprotmodal__btn" id="add-job">Додати</button>
               </div>
               <div class="addprotmodal__bts">
-                <button class="addprotmodal__btn" id="add-extra-info">Додати додаткову інформацію</button>
+                <p class="addprotmodal__title">Додаткова інформація</p>
                 <input class="addprotmodal__input" type="text">
+                <button class="addprotmodal__btn" id="add-extra-info">Додати</button>
               </div>
               <div class="addprotmodal__bts">
                 <button class="addprotmodal__btn" id="add-measurements">Додати ЗВТ</button>

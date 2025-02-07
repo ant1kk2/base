@@ -311,12 +311,13 @@
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 16px;
-  height: 200px;
+  height: 150px;
   width: 300px;
 }
 
 .addmodal__input-date {
   font-size: 16px;
+  cursor: pointer;
 }
 
 .addmodal__btns {
@@ -327,6 +328,11 @@
 
 .hidden {
   display: none;
+}
+
+.alerted {
+  border-color: red;
+  color: red;
 }
 
 .addprotmodal__container {
@@ -344,8 +350,12 @@
 .addprotmodal__bts {
   display: flex;
   column-gap: 10px;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
+}
+
+.addprotmodal__title{
+  flex-grow: 1;
 }
 
 .addprotmodal__textarea {
@@ -389,5 +399,15 @@
   width: 100px;
 }
 .addprotmodal__td:nth-child(4){
+  width: 50px;
+}
+
+.addprotmodal__td:first-child.longcell{
+  width: 400px;
+}
+.addprotmodal__td:nth-child(2).longcell{
+  width: 100px;
+}
+.addprotmodal__td:nth-child(3).longcell{
   width: 50px;
 }

@@ -54,6 +54,88 @@ const instructions = [
     date: "18.11.2021",
     iPathWord: "./base/20915546.25300.00482 ТИ/20915546.25300.00482.doc",
   },
+
 ];
 
 export default instructions;
+
+
+const devs = [{
+  id: "tav",
+  title: "ЦТАВ",
+  sectors: [
+    {
+      id: "davt",
+      title: "Дільниця автоматики",
+      docs: [],
+      groups: [
+        {
+          id: "ssj1",
+          title: "Група ССЖ-1",
+          docs: [
+            {
+              id: "i1",
+              number: "20915546.25300.00707 ТІ",
+              title:
+                "Технологічна iнструкцiя на проведення технічного обслуговування і поточного ремонту блоків вентиляторів БВ-01, БВ-11, БВ-13, БВ-14 шаф ПТК СНЕ РВ, СНЕ ТВ, УСБ енергоблоків № 1, 2",
+              date: "26.10.2022",
+              instructionPath: "",
+              protocols: [
+                {
+                  id: "p1",
+                  title: "Протокол технічного обслуговування блоків вентиляторів",
+                  protocolPath: "",
+                  protocolType: "ТО",
+                  protocolInfo: ['sadfdsaf', 'sadfsadf', 'asddsaf'],
+                  protocolJobs: [{
+                    order: "6.1.1",
+                    job: "Робота 1"
+                  },
+                  {
+                    order: "6.1.2",
+                    job: "Робота 2"
+                  },
+                  {
+                    order: "6.1.2",
+                    job: "Робота 3"
+                  },
+                  {
+                    order: "6.1.2",
+                    job: "Робота 4"
+                  },
+                  {
+                    order: "6.1.3",
+                    job: "Робота 5"
+                  },
+                ]
+                }
+              ]
+            },
+          ],
+        },
+        {
+          id: "szb1",
+          title: "Група СЗБ-1",
+          docs: [],
+        }
+      ]
+    },
+    {
+      id: "dkvp",
+      title: "Дільниця ремонту КВП",
+      docs: [],
+      groups: [
+        {
+          id: "vrt11",
+          title: "Група 1ВРТ-1",
+          docs: [],
+        },
+        {
+          id: "vrt12",
+          title: "Група 1ВРТ-2",
+          docs: [],
+        },
+      ]
+    }
+  ]
+}];

@@ -34,22 +34,22 @@ export function addProtInfo(btn) {
   const protTableHead = document.querySelector(".addprotmodal__thead");
   const headCell1 = document.createElement("th");
   headCell1.className = "addprotmodal__th";
-  if (btn.nextElementSibling.value.trim() === "") return;
-  headCell1.textContent = btn.nextElementSibling.value;
+  if (btn.previousElementSibling.value.trim() === "") return;
+  headCell1.textContent = btn.previousElementSibling.value;
   const headCell2 = document.createElement("th");
   headCell2.className = "addprotmodal__th";
   const headCell3 = document.createElement("th");
   headCell3.className = "addprotmodal__th";
   headCell3.textContent = "Видалити";
   headCell3.addEventListener("click", (e) => {
-    deleteRow(e, protTableHead);
+    deleteInfoRow(e, protTableHead);
   });
   if (protTableHead.querySelectorAll(".addprotmodal__th").length === 2) {
     protTableHead.querySelector(".addprotmodal__tr").lastElementChild.remove();
     protTableHead
       .querySelector(".addprotmodal__tr")
       .append(headCell1, headCell2, headCell3);
-    btn.nextElementSibling.value = "";
+    btn.previousElementSibling.value = "";
     return;
   }
   const headRow = document.createElement("tr");
@@ -58,19 +58,19 @@ export function addProtInfo(btn) {
   protTableHead.querySelector(".addprotmodal__th").rowSpan = ++rowSpan;
   protTableHead.append(headRow);
   headRow.append(headCell1, headCell2, headCell3);
-  btn.nextElementSibling.value = "";
+  btn.previousElementSibling.value = "";
 }
 
 export function addRepairType(btn) {
-  if (btn.nextElementSibling.value.trim() === "") return;
+  if (btn.previousElementSibling.value.trim() === "") return;
   const repairTypeCell = document
     .querySelector(".addprotmodal__tbody")
     .querySelector(".addprotmodal__td");
-  repairTypeCell.innerText = btn.nextElementSibling.value;
-  btn.nextElementSibling.value = "";
+  repairTypeCell.innerText = btn.previousElementSibling.value;
+  btn.previousElementSibling.value = "";
 }
 
-function deleteRow(e, head) {
+function deleteInfoRow(e, head) {
   const mainCellValue = head.querySelector(".addprotmodal__th").innerText;
   const firstRow = head.querySelector(".addprotmodal__tr");
   if (head.childElementCount === 1) {
@@ -90,8 +90,29 @@ function deleteRow(e, head) {
     newMainCell.innerText = mainCellValue;
     firstRow.nextElementSibling.prepend(newMainCell);
     firstRow.remove();
-    return
+    return;
   } else {
-    e.target.parentElement.remove()
+    e.target.parentElement.remove();
   }
+}
+
+let longOrderCell;
+
+export function addJob(btn) {
+  const orderInput = btn.previousElementSibling.previousElementSibling;
+  const jobInput = btn.previousElementSibling;
+  const protTableBody = document.querySelector(".addprotmodal__tbody");
+  if (orderInput.value.trim() === "" || jobInput.value.trim() === "") return;
+  const jobRow = document.createElement("tr");
+  jobRow.className = "addprotmodal__tr";
+  const orderCell = document.createElement("td");
+  const jobCell = document.createElement("td");
+  const resultCell = document.createElement("td");
+  [orderCell, jobCell, resultCell].forEach(
+    (cell) => (cell.className = "addprotmodal__td")
+  );
+  jobRow.append(orderCell, jobCell, resultCell);
+  protTableBody.append(jobRow);
+  orderInput.value = "";
+  jobInput.value = "";
 }

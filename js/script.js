@@ -7,7 +7,13 @@ import {
   closeInstructionModal,
   openAddInstructionModal,
 } from "./modalController.js";
-import { addInstruction, addProtInfo, addRepairType } from "./addProtocolModal.js";
+import {
+  addInstruction,
+  addJob,
+  addProtInfo,
+  addRepairType,
+} from "./addProtocolModal.js";
+import { changeDevelopersBySector } from "./addInstructionModal.js";
 
 const isAdmin = Boolean(localStorage.getItem("isAdmin"));
 
@@ -23,8 +29,37 @@ if (isAdmin) {
 }
 
 const addInstructionNextBtn = document.querySelector(".addmodal__btn");
+const NumOfInstruction = document.querySelector("#instructionNum")
+const NameOfInstruction = document.querySelector("#instructionName")
+const DateOfInstruction = document.querySelector("#instructionDate")
+
+NumOfInstruction.addEventListener("input", () => {
+  NumOfInstruction.classList.remove("alerted")
+})
+
+NameOfInstruction.addEventListener("input", () => {
+  NameOfInstruction.classList.remove("alerted")
+})
+
+DateOfInstruction.addEventListener("input", () => {
+  DateOfInstruction.classList.remove("alerted")
+})
 
 addInstructionNextBtn.addEventListener("click", () => {
+  const now = new Date();
+  const inputDate = Date.parse(DateOfInstruction.value)
+  if (NumOfInstruction.value.trim() === "") {
+    NumOfInstruction.classList.add("alerted")
+    return
+  }
+  if (NameOfInstruction.value.trim() === "") {
+    NameOfInstruction.classList.add("alerted")
+    return
+  }
+  if (now - inputDate < 0 || !inputDate) {
+    DateOfInstruction.classList.add("alerted")
+    return
+  }
   addInstruction();
 });
 
@@ -34,10 +69,16 @@ addProtInfoBtn.addEventListener("click", () => {
   addProtInfo(addProtInfoBtn);
 });
 
-const addRepairTypeBtn = document.querySelector("#add-repair-type")
+const addRepairTypeBtn = document.querySelector("#add-repair-type");
 
 addRepairTypeBtn.addEventListener("click", () => {
-  addRepairType(addRepairTypeBtn)
+  addRepairType(addRepairTypeBtn);
+});
+
+const addJobBtn = document.querySelector('#add-job')
+
+addJobBtn.addEventListener('click', () => {
+  addJob(addJobBtn)
 })
 
 const gropsOpenBtns = document.querySelectorAll(".group__open");
@@ -183,3 +224,10 @@ document.addEventListener("click", (e) => {
     closeAddProtModal();
   }
 });
+
+const selectedSector = document.querySelector("#sector")
+const selectedGroup = document.querySelector("#developer")
+
+selectedSector.addEventListener("change", (e) => {
+  changeDevelopersBySector(e, selectedGroup)
+})
