@@ -96,6 +96,7 @@ function deleteInfoRow(e, head) {
   }
 }
 
+let longOrderValue;
 let longOrderCell;
 
 export function addJob(btn) {
@@ -111,6 +112,29 @@ export function addJob(btn) {
   [orderCell, jobCell, resultCell].forEach(
     (cell) => (cell.className = "addprotmodal__td")
   );
+  const prevOrderCell = protTableBody.lastElementChild.firstElementChild;
+
+  orderCell.innerText = orderInput.value;
+  jobCell.innerText = jobInput.value;
+
+  if (
+    protTableBody.childElementCount > 1 &&
+    prevOrderCell.innerText === orderInput.value
+  ) {
+    longOrderValue = orderInput.value;
+    longOrderCell = prevOrderCell;
+  }
+
+  if (orderInput.value === longOrderValue) {
+    longOrderCell.rowSpan += 1;
+    jobCell.classList.add("longcell");
+    resultCell.classList.add("longcell");
+    jobRow.append(jobCell, resultCell);
+    protTableBody.append(jobRow);
+    orderInput.value = "";
+    jobInput.value = "";
+    return;
+  }
   jobRow.append(orderCell, jobCell, resultCell);
   protTableBody.append(jobRow);
   orderInput.value = "";
