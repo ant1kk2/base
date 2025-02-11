@@ -167,18 +167,17 @@
               </fieldset>
               <fieldset class="addmodal__fieldset">
                 <label class="addmodal__label" for="tegs">Примітка</label>
-                <textarea class="addmodal__input-name" type="text" name="tegs"
-                  id="tegs"></textarea>
+                <textarea class="addmodal__input-name" type="text" name="tegs" id="tegs"></textarea>
               </fieldset>
               <div class="addmodal__btns">
                 <button class="addmodal__btn" type="button">Далі</button>
                 <button class="addmodal__close-btn" type="button">Вихід</button>
               </div>
-              
+
             </form>
           </div>
         </div>
-        <div class="addprotmodal hidden">
+        <div class="addprotmodal ">
           <div class="addprotmodal__container">
             <div class="addprotmodal__aside">
               <div class="addprotmodal__bts">
@@ -195,7 +194,7 @@
                 <p class="addprotmodal__title">Роботи</p>
                 <input class="addprotmodal__input" id="protClause" type="text" placeholder="Пункт ТІ">
                 <textarea class="addprotmodal__textarea" id="protClauseText" type="text"
-                placeholder="Опис роботи"></textarea>
+                  placeholder="Опис роботи"></textarea>
                 <button class="addprotmodal__btn" id="add-job">Додати</button>
               </div>
               <div class="addprotmodal__bts">
@@ -204,7 +203,7 @@
                 <button class="addprotmodal__btn" id="add-extra-info">Додати</button>
               </div>
               <div class="addprotmodal__bts">
-                <button class="addprotmodal__btn" id="add-measurements">Додати ЗВТ</button>
+                <button class="addprotmodal__btn" id="add-measurements">Додати строку ЗВТ</button>
               </div>
             </div>
             <form class="addprotmodal__form" action="#">
@@ -222,6 +221,7 @@
                     <td class="addprotmodal__td">Результат</td>
                   </tr>
                 </tbody>
+                <tfoot class="addprotmodal__tfoot"></tfoot>
               </table>
             </form>
           </div>

@@ -66,7 +66,9 @@
 .imodal__close-btn:hover,
 .addmodal__btn:hover,
 .addmodal__close-btn:hover,
-.addprotmodal__btn:hover {
+.addprotmodal__btn:hover,
+.addprotmodal__del-btn:hover,
+.addprotmodal__zvt-del-btn:hover {
   background-color: rgb(223, 223, 223);
 }
 
@@ -80,7 +82,9 @@
 .imodal__close-btn:active,
 .addmodal__btn:active,
 .addmodal__close-btn:active,
-.addprotmodal__btn:active {
+.addprotmodal__btn:active,
+.addprotmodal__del-btn:active,
+.addprotmodal__zvt-del-btn:active {
   background-color: rgb(179, 179, 179);
 }
 
@@ -207,7 +211,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(168, 168, 168, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -342,8 +346,6 @@
   max-height: 500px;
 }
 
-
-
 .addprotmodal__aside {
   display: flex;
   flex-direction: column;
@@ -377,44 +379,103 @@
 
 .addprotmodal__form {
   border-collapse: collapse;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
+
 .addprotmodal__form th,
 .addprotmodal__form td {
   border: 1px solid black;
 }
 
-.addprotmodal__table {
+.addprotmodal__table,
+.addprotmodal__zvt-table {
   border: 2px solid black;
   overflow-y: scroll;
+  margin-bottom: 10px;
 }
 
 .addprotmodal__th,
-.addprotmodal__td {
+.addprotmodal__td,
+.addprotmodal__zvt-td,
+.addprotmodal__zvt-th {
   padding: 5px 10px;
+  height: 28px;
 }
 
-.addprotmodal__td:first-child {
+.addprotmodal__td:first-child,
+.addprotmodal__th:first-child {
   text-align: center;
   width: 150px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
 }
+
 .addprotmodal__td:nth-child(2) {
   width: 400px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
 }
-.addprotmodal__td:nth-child(3) {
+
+.addprotmodal__td:nth-child(3),
+.addprotmodal__th:nth-child(3) {
   width: 100px;
 }
-.addprotmodal__td:nth-child(4) {
+
+.addprotmodal__td:nth-child(4),
+.addprotmodal__th:nth-child(4) {
   width: 50px;
 }
 
-.addprotmodal__td:first-child.longcell {
+.addprotmodal__td.longcell:first-child,
+.addprotmodal__th.longcell:first-child {
   text-align: left;
   width: 400px;
 }
-.addprotmodal__td:nth-child(2).longcell {
+
+.addprotmodal__td:nth-child(2).longcell,
+.addprotmodal__th:nth-child(2).longcell {
+  text-align: left;
   width: 100px;
 }
-.addprotmodal__td:nth-child(3).longcell {
+
+.addprotmodal__td:nth-child(3).longcell,
+.addprotmodal__th:nth-child(3).longcell {
   width: 50px;
+}
+
+.addprotmodal__del-btn {
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.addprotmodal__zvt-text {
+  margin-bottom: 5px;
+}
+
+.addprotmodal__zvt-td:first-child,
+.addprotmodal__zvt-th:first-child {
+  width: 180px;
+}
+
+.addprotmodal__zvt-td:nth-child(2),
+.addprotmodal__zvt-th:nth-child(2) {
+  width: 170px;
+}
+
+.addprotmodal__zvt-td:nth-child(3),
+.addprotmodal__zvt-th:nth-child(3) {
+  width: 200px;
+}
+
+.addprotmodal__zvt-td:nth-child(4),
+.addprotmodal__zvt-th:nth-child(4) {
+  width: 100px;
+}
+
+.addprotmodal__zvt-del-btn {
+  width: 50px;
+  cursor: pointer;
+  border-radius: 5px;
 }

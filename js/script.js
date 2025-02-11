@@ -3,15 +3,17 @@ import { toogleGroups } from "./sideMenu.js";
 import { sortByNumber, sortByName, sortByDate } from "./instructionsSort.js";
 import {
   closeAddInstructionModal,
-  closeAddProtModal,
   closeInstructionModal,
   openAddInstructionModal,
+  closeAddProtModal
 } from "./modalController.js";
 import {
+  addExtraInfo,
   addInstruction,
   addJob,
   addProtInfo,
   addRepairType,
+  addZvt,
 } from "./addProtocolModal.js";
 import { changeDevelopersBySector } from "./addInstructionModal.js";
 
@@ -79,6 +81,18 @@ const addJobBtn = document.querySelector('#add-job')
 
 addJobBtn.addEventListener('click', () => {
   addJob(addJobBtn)
+})
+
+const addExtraInfoBtn = document.querySelector('#add-extra-info')
+
+addExtraInfoBtn.addEventListener("click", () => {
+  addExtraInfo(addExtraInfoBtn)
+})
+
+const addZvtBtn = document.querySelector('#add-measurements')
+
+addZvtBtn.addEventListener("click", () => {
+  addZvt()
 })
 
 const gropsOpenBtns = document.querySelectorAll(".group__open");

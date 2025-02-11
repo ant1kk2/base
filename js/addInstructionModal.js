@@ -12,3 +12,4 @@ export function changeDevelopersBySector(e, group) {
       `
   };
 }
+
